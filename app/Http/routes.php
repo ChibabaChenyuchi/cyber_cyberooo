@@ -16,11 +16,15 @@
 	//return View::make('home');
 //});
 
+Route::resource('deletequestions','questionsController@deletequestions');
+
+Route::resource('settings_picture_save','SettingsController@settings_picture_save');
+
 Route::resource('user','usersController');
 
 Route::resource('user.question','clientQuestionsController');
 
-Route::resource('deletequestions','questionsController@deletequestions');
+
 
 Route::group(array('before' => 'auth'), function(){
     // your routes
@@ -73,6 +77,8 @@ Route::group(array('before' => 'auth'), function(){
     Route::get('dashboard','DashboardController@index');
     Route::get('profile','ProfileController@index');
     Route::get('settings','SettingsController@index');
+
+
 
 
     Route::get('/charts', function()
